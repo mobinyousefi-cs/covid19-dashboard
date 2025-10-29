@@ -60,39 +60,3 @@ MIT — © 2025 Mobin Yousefi
 ```
 ```
 
----
-
-## File: `run.py`
-
-```python
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-===========================================================================
-Project: COVID-19 Spread Analysis with Flask
-File: run.py
-Author: Mobin Yousefi (GitHub: github.com/mobinyousefi-cs)
-Created: 2025-10-29
-Updated: 2025-10-29
-License: MIT License (see LICENSE file for details)
-===========================================================================
-
-Description:
-Entry point for running the Flask development server.
-===========================================================================
-"""
-from covid_dashboard import create_app
-
-app = create_app()
-
-if __name__ == "__main__":
-    app.run(debug=app.config.get("DEBUG", True))
-```
-```
-
----
-
-### ✅ Notes
-- The folium map uses latest available date rows and will render markers only when lat/lon exist in the dataset.
-- The pipeline is robust to various Data‑Flair CSV shapes and performs column normalization automatically.
-- If you want live updates on a schedule, add a small cron or APScheduler job to re‑download data.
