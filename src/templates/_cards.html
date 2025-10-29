@@ -1,0 +1,20 @@
+<!-- ===================================================================
+Project: COVID-19 Spread Analysis with Flask
+File: templates/_cards.html
+Author: Mobin Yousefi (GitHub: github.com/mobinyousefi-cs)
+Created: 2025-10-29 | Updated: 2025-10-29 | License: MIT
+=================================================================== -->
+<div class="grid cols-3" style="margin:1rem 0 2rem">
+  <div class="card kpi">
+    <span class="label">Total Confirmed</span>
+    <span class="value">{{ totals.confirmed }}</span>
+  </div>
+  <div class="card kpi">
+    <span class="label">Total Deaths</span>
+    <span class="value">{{ totals.deaths }}</span>
+  </div>
+  <div class="card kpi">
+    <span class="label">Total Recovered</span>
+    <span class="value">{{ totals.recovered }}</span>
+  </div>
+</div>

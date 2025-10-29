@@ -1,0 +1,14 @@
+<!-- ===================================================================
+Project: COVID-19 Spread Analysis with Flask
+File: templates/map.html
+Author: Mobin Yousefi (GitHub: github.com/mobinyousefi-cs)
+Created: 2025-10-29 | Updated: 2025-10-29 | License: MIT
+=================================================================== -->
+{% extends 'base.html' %}
+{% block content %}
+  <h1 style="margin-bottom:.25rem">Geospatial Map</h1>
+  <p class="code">Interactive Folium/Leaflet map of latest reported locations.</p>
+  <div class="card" style="overflow:hidden">
+    {{ map_html|safe }}
+  </div>
+{% endblock %}

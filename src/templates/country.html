@@ -1,0 +1,36 @@
+<!-- ===================================================================
+Project: COVID-19 Spread Analysis with Flask
+File: templates/country.html
+Author: Mobin Yousefi (GitHub: github.com/mobinyousefi-cs)
+Created: 2025-10-29 | Updated: 2025-10-29 | License: MIT
+=================================================================== -->
+{% extends 'base.html' %}
+{% block content %}
+  <h1 style="margin-bottom:.25rem">{{ country }} — Detail</h1>
+  <p class="code">Province/State breakdown and daily aggregates.</p>
+
+  <div class="grid cols-3" style="margin:1rem 0 2rem">
+    <div class="card kpi"><span class="label">Confirmed</span><span class="value">{{ totals.confirmed }}</span></div>
+    <div class="card kpi"><span class="label">Deaths</span><span class="value">{{ totals.deaths }}</span></div>
+    <div class="card kpi"><span class="label">Recovered</span><span class="value">{{ totals.recovered }}</span></div>
+  </div>
+
+  <div class="card">
+    <table class="table">
+      <thead>
+        <tr><th>Date</th><th>Province/State</th><th>Confirmed</th><th>Deaths</th><th>Recovered</th></tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+          <tr class="row">
+            <td>{{ r.date }}</td>
+            <td>{{ r.province_state }}</td>
+            <td>{{ r.confirmed }}</td>
+            <td>{{ r.deaths }}</td>
+            <td>{{ r.recovered }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!-- ===================================================================
+Project: COVID-19 Spread Analysis with Flask
+File: templates/404.html
+Author: Mobin Yousefi (GitHub: github.com/mobinyousefi-cs)
+Created: 2025-10-29 | Updated: 2025-10-29 | License: MIT
+=================================================================== -->
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card" style="text-align:center;padding:3rem 1rem">
+    <div class="loading" style="justify-content:center">
+      <div class="spinner"></div>
+      <h2 style="margin:0">Preparing...</h2>
+    </div>
+    <p class="code" style="margin-top:.75rem">The resource you requested was not found. Please go back to the overview.</p>
+    <a class="btn" href="/">Go Home</a>
+  </div>
+{% endblock %}

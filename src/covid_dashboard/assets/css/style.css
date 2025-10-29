@@ -1,0 +1,33 @@
+/*
+===========================================================================
+Project: COVID-19 Spread Analysis with Flask
+File: assets/css/style.css
+Author: Mobin Yousefi (GitHub: github.com/mobinyousefi-cs)
+Created: 2025-10-29
+Updated: 2025-10-29
+License: MIT License (see LICENSE file for details)
+===========================================================================
+*/
+:root{--bg:#0f1220;--card:#161a2b;--muted:#9aa4b2;--text:#f4f7ff;--accent:#5b8def}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:var(--bg);color:var(--text)}
+.container{max-width:1200px;margin:0 auto;padding:2rem}
+.navbar{display:flex;gap:1rem;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(255,255,255,0.02);backdrop-filter:blur(6px);position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.06)}
+.navbar a{color:var(--text);text-decoration:none;opacity:.9}
+.navbar a:hover{opacity:1}
+.grid{display:grid;gap:1rem}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--card);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1rem;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.kpi{display:flex;flex-direction:column;gap:.25rem}
+.kpi .label{color:var(--muted);font-size:.9rem}
+.kpi .value{font-size:1.5rem;font-weight:700}
+.table{width:100%;border-collapse:separate;border-spacing:0 8px}
+.table th,.table td{padding:.6rem .8rem;text-align:left}
+.table thead th{color:var(--muted);font-size:.9rem}
+.row{background:rgba(255,255,255,0.02)}
+.btn{display:inline-block;padding:.6rem 1rem;border-radius:10px;background:var(--accent);color:white;text-decoration:none;border:none;cursor:pointer}
+.footer{padding:2rem 0;color:var(--muted);text-align:center}
+.code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;color:#cbd5e1}
+.loading{display:flex;align-items:center;gap:.6rem;color:var(--muted)}
+.spinner{width:14px;height:14px;border:2px solid rgba(255,255,255,.25);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}

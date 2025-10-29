@@ -1,0 +1,73 @@
+<!-- ===================================================================
+Project: COVID-19 Spread Analysis with Flask
+File: templates/index.html
+Author: Mobin Yousefi (GitHub: github.com/mobinyousefi-cs)
+Created: 2025-10-29 | Updated: 2025-10-29 | License: MIT
+=================================================================== -->
+{% extends 'base.html' %}
+{% block content %}
+  <h1 style="margin-bottom:.25rem">Global Overview</h1>
+  <p class="code">Live dashboard with timeseries, top countries, and quick KPIs.</p>
+
+  {% include '_cards.html' %}
+
+  <div class="card" style="padding:1rem 1rem 1.5rem">
+    <h3 style="margin:0 0 .75rem">Global Timeseries</h3>
+    <div id="ts" class="plot"></div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <h3 style="margin:0 0 .75rem">Top 10 Countries by Confirmed</h3>
+    <div id="bar" class="plot"></div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <h3 style="margin:0 0 .75rem">Top 50 Countries (Table)</h3>
+    <table class="table">
+      <thead>
+        <tr><th>Country</th><th>Confirmed</th><th>Deaths</th><th>Recovered</th><th></th></tr>
+      </thead>
+      <tbody>
+        {% for r in by_country %}
+          <tr class="row">
+            <td>{{ r.country }}</td>
+            <td>{{ r.confirmed }}</td>
+            <td>{{ r.deaths }}</td>
+            <td>{{ r.recovered }}</td>
+            <td><a class="btn" href="{{ url_for('country_detail', name=r.country) }}">Detail</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    // Timeseries plot
+    const ts = {{ timeseries | tojson }};
+    const tsData = [{
+      x: ts.map(d => d.date),
+      y: ts.map(d => d.confirmed),
+      mode: 'lines',
+      name: 'Confirmed'
+    },{
+      x: ts.map(d => d.date),
+      y: ts.map(d => d.deaths),
+      mode: 'lines',
+      name: 'Deaths'
+    },{
+      x: ts.map(d => d.date),
+      y: ts.map(d => d.recovered),
+      mode: 'lines',
+      name: 'Recovered'
+    }];
+    Plotly.newPlot('ts', tsData, {margin:{t:20,r:10,l:40,b:40}});
+
+    // Top 10 bar
+    const top10 = {{ top10 | tojson }};
+    Plotly.newPlot('bar', [{
+      x: top10.map(d => d.country),
+      y: top10.map(d => d.confirmed),
+      type: 'bar'
+    }], {margin:{t:20,r:10,l:40,b:120}, xaxis:{tickangle:-45}});
+  </script>
+{% endblock %}
